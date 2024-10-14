@@ -49,6 +49,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # Deploying
 npm run build
 
+"homepage" : "https://storage.googleapis.com/kakatoe-ts"
+
 then to sync : 
 ```shell
 gsutil -m rsync -r ./build gs://kakatoe-ts
