@@ -39,9 +39,9 @@ function Gallery() {
 
     useEffect(() => {
         let first = selectedFolder
-        if(!selectedFolder){
+        if (!selectedFolder) {
 
-             first = folders[0] as string
+            first = folders[0] as string
         }
         setSelectedFolder(first)
 
@@ -50,6 +50,21 @@ function Gallery() {
     return (
         <Container>
 
+
+            <Row className="p-2 timeline">
+                {
+                    folders.map((folder, index) => {
+
+                        return <Col className="flex justify-content-center align-items-center"><Button
+                            value={"" + folder} onClick={updateSelectedFolder}>{folder}</Button>
+                        <div className="vert">&nbsp;
+                            <div className="open-circle"></div>
+                        </div>
+                        </Col>
+                    })
+                }
+                <hr></hr>
+            </Row>
             <Row xs={2} sm={2} md={2}>
                 <Col>
                     <div className="m-2">
