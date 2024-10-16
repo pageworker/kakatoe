@@ -21,8 +21,6 @@ function Gallery() {
     const [index, setIndex] = useState(-1);
     const [selectedFolder, setSelectedFolder] = useState(String);
     const updateSelectedFolder = (event: any) => {
-        console.log(event.target.value);
-        debugger
         setSelectedFolder(event.target.value);
     }
 
@@ -51,33 +49,40 @@ function Gallery() {
         <Container>
 
 
-            <Row className="p-2 timeline">
-                {
-                    folders.map((folder, index) => {
+            <Row className="p-2 ">
 
-                        return <Col className="flex justify-content-center align-items-center"><Button
-                            value={"" + folder} onClick={updateSelectedFolder}>{folder}</Button>
-                        <div className="vert">&nbsp;
-                            <div className="open-circle"></div>
-                        </div>
-                        </Col>
-                    })
-                }
-                <hr></hr>
-            </Row>
-            <Row xs={2} sm={2} md={2}>
-                <Col>
-                    <div className="m-2">
+                <div className="timeline-wrapper">
+                    {folders.map((folder, index) => {
+                        return (
 
-                        <Form.Select aria-label="Default select example" onChange={updateSelectedFolder}>
-                            {
-                                folders.map((folder, index) => {
-                                    return <option value={"" + folder}>{folder}</option>
-                                })
-                            }
-                        </Form.Select>
-                    </div>
-                </Col>
+                            <div className="timeline-item">
+                                <Button
+                                    value={"" + folder} onClick={updateSelectedFolder}>{folder}</Button>
+
+                                <div className="vert">
+                                    <div className="open-circle"></div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    <div className="timeline-line"></div>
+
+
+                    {/*{*/}
+                    {/*    folders.map((folder, index) => {*/}
+
+                    {/*        return <Col>*/}
+                    {/*            <Button*/}
+                    {/*                value={"" + folder} onClick={updateSelectedFolder}>{folder}</Button>*/}
+                    {/*            <div className="vert">&nbsp;*/}
+                    {/*                <div className="open-circle"></div>*/}
+                    {/*            </div>*/}
+                    {/*        </Col>*/}
+                    {/*    })*/}
+                    {/*}*/}
+                    {/*    <hr></hr>*/}
+                    {/*</div>*/}
+                </div>
             </Row>
             <MasonryPhotoAlbum photos={photosFiltered} onClick={({index}) => setIndex(index)}/>
 

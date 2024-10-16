@@ -18,16 +18,38 @@
     max-width: 900px;
 }
 
-.timeline button {
-    z-index: 10;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.timeline .vert {
+.timeline-wrapper {
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.timeline-item {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    margin: -10px 0px 15px 0px ;
+    text-align: center;
+    line-height: 70px;
+    border-bottom: 1px solid #938e8e;
+}
+
+
+.timeline-item .vert {
     border-left: 1px solid #938e8e;
     width: 1px;
-    height: 30px;
+    height: 45px;
     position: relative;
-    left: 25%
+    left: 50%;
+    top: -15px
+
 }
 
 .open-circle {
@@ -38,10 +60,11 @@
     height: 12px;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: white; /* Match the background color to make it appear open */
+    background-color: #938e8e; /* Match the background color to make it appear open */
 }
 
-.timeline hr {
+.timeline-wrapper {
 
-    z-index: 1;
+    border-bottom: 1px solid #938e8e;
+    margin: 20px;
 }
